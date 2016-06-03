@@ -1,0 +1,31 @@
+{
+  "name": "node-daemon",
+  "version": "0.1.0",
+  "description": "task manager for Linux servers",
+  "main": "index.js",
+  "dependencies": {
+    "mongoose": "^4.4.19",
+    "restify": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desoares1975/node-daemon.git"
+  },
+  "keywords": [
+    "task",
+    "manager",
+    "for",
+    "linux",
+    "server"
+  ],
+  "author": "desoares",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/desoares1975/node-daemon/issues"
+  },
+  "homepage": "https://github.com/desoares1975/node-daemon#readme"
+}
