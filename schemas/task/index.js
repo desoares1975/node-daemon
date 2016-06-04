@@ -10,7 +10,19 @@ const  TaskSchema = new Schema({
 	},
 	'executionType': {
 		'type': String,
-		'enum': ['interval', 'agended']
+		'enum': ['interval', 'scheduled', 'ordered']
+	},
+	'scope': {
+		'type': String,
+		'enum': ['curl', 'http', 'local', 'ssl'],
+		'default': 'local'
+	},
+	'scopeOptions': {
+		'host': String,
+		'path': String,
+		'number': Number,
+		'array': [Schema.Types.Mixed],
+		'object': Schema.Types.Mixed
 	},
 	'command': {
 		'cmd': {
@@ -29,6 +41,28 @@ const  TaskSchema = new Schema({
 			}
 		}
 	},
+	'perks': {
+		'overloadble': {
+			'type': Boolean,
+            'default': false
+		},
+		'exclusive':{
+			'type': Boolean,
+            'default': false
+		},
+        'killable': {
+            'type': Boolean,
+            'default': true
+        },
+        'forceble': {
+            'type': Boolean,
+            'default': true
+        },
+        'stoppable': {
+            'type': Boolean,
+            'default': true
+        }
+    },
 	'active': {
 		'type': Boolean,
 		'default': true

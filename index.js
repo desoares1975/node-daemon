@@ -1,2 +1,3 @@
 global.__base = __dirname + '/';
-require('./server');
+require(__base + 'server');
+require(__base + 'app');

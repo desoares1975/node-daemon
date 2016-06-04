@@ -17,7 +17,7 @@ module.exports = {
 	},
 	'read': (req, res) => {
 		Task.find().exec((err, tasks) => {
-			return res.send(200, tasks)
+			return res.send(200, tasks);
 		})
 		.catch(reason => {
 			return res.send(500, {
@@ -25,5 +25,7 @@ module.exports = {
 				'error': reason
 			});
 		});
+	},
+	'filter': (req, res) => {
 	}
 };

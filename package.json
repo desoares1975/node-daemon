@@ -4,6 +4,7 @@
   "description": "task manager for Linux servers",
   "main": "index.js",
   "dependencies": {
+    "execa": "^0.4.0",
     "mongoose": "^4.4.19",
     "restify": "^4.1.0"
   },
