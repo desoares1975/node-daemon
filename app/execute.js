@@ -1,17 +1,36 @@
 'use strict';
-const execa = require('execa');
-const client = require('restify').createJsonClient;
+const execa = require('execa'),
+	client = require('restify').createJsonClient,
+	 _ = require('lodash');
 
 class Execute {
+
+	parseScopeOptions(data) {
+		let parse = {};
+		data.forEach((value) => {
+			switch (true) {
+				case /^http/.test(value) : parse.host = value; break;
+				case /^\//.test(value) : parse.path = value; break;
+				case /[0-9]/.test(value) : parse.port = value; break;
+			}
+
+		});
+
+		return parse;
+	}
 
 	curl() {
 
 	}
 
 	http(task) {
-		client({'url': task.scopeOptions.host})
-		.post(task.scopeOptions.path, task.scopeOptions.data, (err, req, res, obj) => {
-			console.log(err, req, res, obj);
+		let stringOptions = this.parseScopeOptions(task.scopeOptions.strings),
+			numberOptions = this.parseScopeOptions(task.scopeOptions.numbers),
+			url = (stringOptions.host + (numberOptions.port ? ':' + numberOptions.port : '' ));
+
+		client({'url': url})
+		.post(stringOptions.path, {'command': task.command.cmd, options: task.command.options}, (err, req, res, obj) => {
+			console.log(obj);
 		});
 	}
 

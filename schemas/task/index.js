@@ -18,11 +18,22 @@ const  TaskSchema = new Schema({
 		'default': 'local'
 	},
 	'scopeOptions': {
-		'host': String,
-		'path': String,
-		'number': Number,
-		'array': [Schema.Types.Mixed],
-		'object': Schema.Types.Mixed
+		'strings': [{
+			'type': String,
+			'default': []
+		}],
+		'numbers': [{
+			'type': Number,
+			'default': []
+		}],
+		'arrays': [{
+			'type': Array,
+			'default': []
+		}],
+		'objects': [{
+			'type': Schema.Types.Mixed,
+			'default': []
+		}],
 	},
 	'command': {
 		'cmd': {
